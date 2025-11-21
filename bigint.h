@@ -72,10 +72,6 @@ public:
     friend ostream &operator<<(ostream &,const BigInt &);
     friend istream &operator>>(istream &, BigInt &);
 
-    //Others
-    friend BigInt NthCatalan(int n);
-    friend BigInt NthFibonacci(int n);
-    friend BigInt Factorial(int n);
 };
 
 BigInt::BigInt(string & s){

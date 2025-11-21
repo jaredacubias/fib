@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <chrono>
+#include <stdio.h>
 
 BigInt fiblinear(int n);
 BigInt fibrecursion(int n);
@@ -13,20 +14,33 @@ int main() {
     std::cout << "Enter a number for the n-th fibonacci number you want to find: ";
     int n;
     std::cin >> n;
+
+    // Linear Algebra Implementation
+    
     auto start = std::chrono::high_resolution_clock::now();
     BigInt resultlinear = fiblinear(n);
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    long long timeElapsed = duration.count();
+    long long timeElapsedLA = duration.count();
     std::cout << "The " << n << "-th fibonacci number is " << resultlinear << '\n';
-    std::cout << "Time elasped: " << timeElapsed << " nanoseconds.\n";
-    start = std::chrono::high_resolution_clock::now();
+
+    std::cout << "Time elasped: " << timeElapsedLA << " nanoseconds.\n";
+    
+    
+    // Recursion Implementation
+    /**
+    auto start = std::chrono::high_resolution_clock::now();
     BigInt resultrecursion = fibrecursion(n);
-    end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    timeElapsed = duration.count();
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    long long timeElapsedRec = duration.count();
     std::cout << "The " << n << "-th fibonacci number is " << resultrecursion << '\n';
-    std::cout << "Time elasped: " << timeElapsed << " nanoseconds.\n";
+    std::cout << "Time elasped: " << timeElapsedRec << " nanoseconds.\n";
+    float percentDiff = (timeElapsedLA/timeElapsedRec) * 100;
+    
+    printf("The Linear Algebra implementation takes %.10f%% of the time as the recursion time!\n", percentDiff); 
+    */
+    
 }
 
 BigInt fiblinear(int n) {
